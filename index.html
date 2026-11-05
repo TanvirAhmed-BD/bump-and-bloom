@@ -550,6 +550,10 @@
       .calc-result .due-big { font-family: "DM Serif Display", Georgia, serif; font-size: 30px; color: var(--plum); line-height: 1.2; }
       .calc-result p { margin: 6px 0 14px; color: var(--ink); font-size: 15.5px; }
       .calc-msg { font-size: 14.5px; color: var(--ink-soft); margin-top: 10px; }
+      .calc-result .btn { margin: 0 8px 8px 0; }
+      .calc-save-msg { font-size: 14.5px; font-weight: 700; color: var(--plum-deep); margin: 2px 0 0; min-height: 1.3em; }
+      .calc-save-msg:empty { min-height: 0; }
+      #trackerCard { scroll-margin-top: 160px; }
 
       /* ---------- Mom Tools ---------- */
       .tools-privacy {
@@ -1065,7 +1069,7 @@
         <div class="wrap">
           <div class="sec-head">
             <h2>When is your baby due?</h2>
-            <p>Tell us the first day of your last period and we'll estimate your due date — and show you the week you're in right now.</p>
+            <p>Tell us the first day of your last period and we'll estimate your due date — and show you the week you're in right now. One more tap saves the date straight into My Week Tracker below, so you never have to enter it twice.</p>
           </div>
           <div class="calc">
             <div>
@@ -1078,6 +1082,8 @@
               <div class="due-big" id="dueBig">Your due date will appear here</div>
               <p id="dueDetail">Pick your date and tap calculate — we'll also find your current week for you.</p>
               <button class="btn btn-ghost" id="dueJump" type="button" disabled>See my week in the explorer</button>
+              <button class="btn btn-rose" id="calcSaveTracker" type="button" hidden>Save this date to My Week Tracker</button>
+              <p class="calc-save-msg" id="calcSaveMsg" aria-live="polite"></p>
             </div>
           </div>
           <p class="fineprint">This calculator gives a rough estimate based on a typical 28-day cycle. It is general information only, not medical advice — your doctor or midwife will confirm your dates, often at your first ultrasound.</p>
@@ -1118,7 +1124,7 @@
               <div class="tool-actions">
                 <button class="btn btn-ghost btn-small" id="kickClearBtn" type="button">Clear history</button>
               </div>
-              <p class="tool-note"><b>A gentle guide:</b> many providers suggest noticing about 10 movements within up to 2 hours. Every baby has their own pattern, though — if movements slow down, change, or you are worried at any point, contact your healthcare provider promptly. This counter is for personal tracking only, not medical advice.</p>
+              <p class="tool-note"><b>A gentle guide:</b> many doctors suggest noticing about 10 movements within up to 2 hours. Every baby has their own pattern, though — if movements slow down, change, or you are worried at any point, contact your doctor promptly. This counter is for personal tracking only, not medical advice.</p>
             </div>
 
             <!-- Contraction timer -->
@@ -1140,15 +1146,15 @@
               <div class="tool-actions">
                 <button class="btn btn-ghost btn-small" id="contractionClearBtn" type="button">Clear all entries</button>
               </div>
-              <p class="tool-note"><b>A general guide only:</b> many providers mention the 5-1-1 pattern — contractions about 5 minutes apart, lasting about 1 minute, for about 1 hour — as a sign it may be time to head in. Your own provider's guidance comes first, always: follow the plan you made together, and contact your care team with any concern. Not medical advice.</p>
+              <p class="tool-note"><b>A general guide only:</b> many doctors mention the 5-1-1 pattern — contractions about 5 minutes apart, lasting about 1 minute, for about 1 hour — as a sign it may be time to head in. Your own doctor's guidance comes first, always: follow the plan you made together, and contact your care team with any concern. Not medical advice.</p>
             </div>
 
             <!-- My week tracker -->
-            <div class="tool-card">
+            <div class="tool-card" id="trackerCard">
               <span class="tool-tag">Your personal week</span>
               <h3>My Week Tracker</h3>
               <div id="trackerSetup">
-                <p>Tell the tracker your due date — or the first day of your last period — just once. From then on, this spot will always open on <em>your</em> week: how far along you are, how big baby is, and a button straight to your Week kit.</p>
+                <p>Tell the tracker your due date — or the first day of your last period — just once. From then on, this spot will always open on <em>your</em> week: how far along you are, how big baby is, and a button straight to your Week kit. Already used the Due Date Calculator above? One tap there saves your date here too — no need to type it again.</p>
                 <div>
                   <label for="trackerDue">My due date</label>
                   <input type="date" id="trackerDue" />
@@ -1182,7 +1188,7 @@
             </div>
 
           </div>
-          <p class="fineprint">These tools are for general information and personal tracking only — not medical advice. Always follow your own healthcare provider's guidance.</p>
+          <p class="fineprint">These tools are for general information and personal tracking only — not medical advice. Always follow your own doctor's guidance.</p>
         </div>
       </section>
 
@@ -1782,7 +1788,7 @@
             <p class="publisher-contact">Questions or feedback: <a href="mailto:hello@hellobumpandbloom.com">hello@hellobumpandbloom.com</a></p>
           </div>
           <h3>One honest promise</h3>
-          <p>We are <b>not</b> doctors, midwives or medical professionals, and Bump &amp; Bloom does not give medical advice. Everything we share is general information — things that help many moms, explained kindly — so you can feel more prepared when you talk with your own doctor or midwife. Your provider knows you and your baby; always follow their guidance first.</p>
+          <p>We are <b>not</b> doctors, midwives or medical professionals, and Bump &amp; Bloom does not give medical advice. Everything we share is general information — things that help many moms, explained kindly — so you can feel more prepared when you talk with your own doctor or midwife. Your doctor knows you and your baby; always follow their guidance first.</p>
           <p>Thank you for spending a little of your pregnancy with us. We're glad you're here.</p>
         </div>
       </div>
@@ -1809,7 +1815,7 @@
           <h3>6. No accounts, no payments</h3>
           <p>There are no user accounts on this website, and we never ask for or collect payment details here. Any purchase you make happens entirely on the other site (such as Amazon) under its own policies.</p>
           <h3>7. How we keep information safe</h3>
-          <p>This site is served over HTTPS, and our email list is held by Brevo, a reputable email provider that processes it on our behalf. No system is perfectly secure, but we take reasonable care with the little information we hold.</p>
+          <p>This site is served over HTTPS, and our email list is held by Brevo, a reputable email service that handles it on our behalf. No system is perfectly secure, but we take reasonable care with the little information we hold.</p>
           <h3>8. Contact us</h3>
           <p>Questions about this policy? Message us through our Facebook page or Instagram (@bumpandbloom.daily), or simply reply to any Daily Bloom email.</p>
         </div>
@@ -1825,13 +1831,13 @@
           <p class="updated">Last updated: November 2026</p>
           <p>These are the simple terms for using the Bump &amp; Bloom website. By using the site, you accept the current version of these terms.</p>
           <h3>1. Information, not medical advice</h3>
-          <p>Everything on Bump &amp; Bloom — videos, guides, tools and posts — is general information and education only. It is not medical advice, a diagnosis, or a treatment plan, and it does not replace your own doctor or midwife. Always follow your own healthcare provider's guidance. If you have an emergency, contact your local emergency services or your healthcare provider immediately.</p>
+          <p>Everything on Bump &amp; Bloom — videos, guides, tools and posts — is general information and education only. It is not medical advice, a diagnosis, or a treatment plan, and it does not replace your own doctor or midwife. Always follow your own doctor's guidance. If you have an emergency, contact your local emergency services or your doctor immediately.</p>
           <h3>2. Our content</h3>
           <p>The videos, guides, text and images on this site belong to Bump &amp; Bloom. You're warmly welcome to share links to our pages and videos — please don't copy or republish our content wholesale as your own.</p>
           <h3>3. Links to other sites</h3>
           <p>This site links to other websites and platforms, including Amazon, YouTube and social media. Those sites are governed by their own terms and privacy policies, and we aren't responsible for their content.</p>
           <h3>4. Tools and calculators</h3>
-          <p>Tools such as the due date calculator, the kick counter and the contraction timer give estimates and simple counts for information only. Results can differ from your provider's assessment — if anything ever worries you, contact your provider straight away.</p>
+          <p>Tools such as the due date calculator, the kick counter and the contraction timer give estimates and simple counts for information only. Results can differ from your doctor's assessment — if anything ever worries you, contact your doctor straight away.</p>
           <h3>5. Changes to these terms</h3>
           <p>We may update these terms from time to time as the site grows. The version shown on this page is the current one, and continuing to use the site means you accept it.</p>
         </div>
@@ -1846,7 +1852,7 @@
             <p style="margin:6px 0 0">Created by Tanvir Ahmed — calm, week-by-week pregnancy guidance for new moms.</p>
           </div>
         </div>
-        <p>Bump &amp; Bloom shares general information about pregnancy, birth and baby care for education and comfort. It is not medical advice and does not replace your doctor, midwife or health visitor. If anything worries you about your pregnancy or your baby, please contact your healthcare provider straight away.</p>
+        <p>Bump &amp; Bloom shares general information about pregnancy, birth and baby care for education and comfort. It is not medical advice and does not replace your doctor, midwife or health visitor. If anything worries you about your pregnancy or your baby, please contact your doctor straight away.</p>
         <p><a href="#about">About Us</a> · <a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms &amp; Conditions</a></p>
         <p>&copy; 2026 Bump &amp; Bloom · <a href="https://bumpandbloom.blogspot.com/" target="_blank" rel="noopener">Blog</a> · <a href="https://www.youtube.com/@HelloBumpAndBloom" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.amazon.com/author/tanvirahmed" target="_blank" rel="noopener">Amazon Author Page</a></p>
       </div>
@@ -1888,10 +1894,10 @@
         25: { size: "cauliflower", title: "Responding to your voice", body: "Baby responds to familiar sounds — especially your voice — with movement. Nostrils are opening, and baby is plumping up as fat layers form.", tip: "If baby gets hiccups, you'll feel a gentle, rhythmic tapping. Perfectly normal." },
         26: { size: "head of lettuce", title: "Eyes about to open", body: "Baby's eyelids, fused until now, are beginning to open. The lungs continue maturing, and brain activity is increasing with developing sleep cycles.", tip: "Backache may creep in — a warm (not hot) bath can be a small evening mercy." },
         27: { size: "cabbage", title: "End of the second trimester", body: "Baby sleeps and wakes in regular cycles, opens and closes those little eyes, and may even suck a finger. The brain is very active now.", tip: "Start thinking about your birth preferences — no rush to decide, just to dream." },
-        28: { size: "eggplant", title: "Welcome to the third trimester", body: "Baby can blink, dream during REM sleep, and is gaining weight steadily. Those kicks and rolls are strong — you may see your belly move.", tip: "Kick counting begins around now for many moms: ten movements within two hours is a common guide — ask your provider about yours." },
+        28: { size: "eggplant", title: "Welcome to the third trimester", body: "Baby can blink, dream during REM sleep, and is gaining weight steadily. Those kicks and rolls are strong — you may see your belly move.", tip: "Kick counting begins around now for many moms: ten movements within two hours is a common guide — ask your doctor about yours." },
         29: { size: "butternut squash", title: "Muscles and lungs maturing", body: "Baby's muscles and lungs keep maturing, and the head is growing to make room for that busy brain. Space is getting snug, so movements feel more like rolls and pushes.", tip: "Calcium-rich foods support baby's hardening bones — and your own." },
         30: { size: "coconut", title: "Three-quarters grown", body: "Baby is surrounded by about a pint and a half of amniotic fluid, which will decrease as baby grows. The brain is developing grooves and wrinkles — getting smarter by the day.", tip: "Shortness of breath is common as baby crowds your diaphragm. Rest sitting upright helps." },
-        31: { size: "pineapple", title: "All five senses working", body: "Baby can turn the head from side to side, and the arms, legs and body are filling out. All five senses are now processing the world inside the womb.", tip: "Braxton Hicks 'practice' contractions may visit — irregular and mild is typical; mention patterns to your provider." },
+        31: { size: "pineapple", title: "All five senses working", body: "Baby can turn the head from side to side, and the arms, legs and body are filling out. All five senses are now processing the world inside the womb.", tip: "Braxton Hicks 'practice' contractions may visit — irregular and mild is typical; mention patterns to your doctor." },
         32: { size: "bunch of kale", title: "Practicing to breathe", body: "Baby practices breathing movements, has toenails and fingernails, and is likely settling head-down. The bones are hardening — except the skull, which stays flexible for birth.", tip: "Packing your hospital bag around now means one less thing to think about later." },
         33: { size: "durian fruit", title: "Room is getting tight", body: "Baby's skull bones are not yet fused, which helps with the journey ahead. The nervous system and lungs continue to mature, and baby is running out of room to somersault.", tip: "Heartburn often peaks now — smaller evening meals and an extra pillow can ease nights." },
         34: { size: "honeydew melon", title: "Smoothing and softening", body: "The vernix coating thickens, the central nervous system is maturing, and most babies born this week do very well with a little support. Baby is gaining about half a pound a week.", tip: "Install the car seat soon and practice with it — future-you will be grateful." },
@@ -1908,42 +1914,42 @@
          weeks, so the kit a mom sees is always about her exact week. */
       var WEEK_CARE = {
         4:  { guide: "Book your first prenatal (booking) appointment, start folic acid (400–800 mcg daily) if you haven't yet, and write down the first day of your last period — it sets your due date. From today, skip alcohol and smoking.", food: "Focus on folate: leafy greens, lentils, eggs and citrus. If smells already bother you, plain and small is perfect — crackers, toast and bananas are fine first foods." },
-        5:  { guide: "Let your provider know you're pregnant and ask about early blood tests. Light-headedness is common now — stand up slowly, and rest whenever your body asks.", food: "Keep a snack by the bed for first thing in the morning. Ginger (tea or chews) and vitamin-B6 foods like bananas, nuts and whole grains can ease early queasiness." },
-        6:  { guide: "An early dating scan is often offered in the weeks ahead. Avoid raw or undercooked meat and unpasteurized cheese, and check any regular medicines with your provider.", food: "Anchor each meal with protein — eggs, yogurt, chicken or beans. Pair iron-rich foods with vitamin C (a squeeze of lemon, a little orange juice) to absorb more of the iron." },
+        5:  { guide: "Let your doctor know you're pregnant and ask about early blood tests. Light-headedness is common now — stand up slowly, and rest whenever your body asks.", food: "Keep a snack by the bed for first thing in the morning. Ginger (tea or chews) and vitamin-B6 foods like bananas, nuts and whole grains can ease early queasiness." },
+        6:  { guide: "An early dating scan is often offered in the weeks ahead. Avoid raw or undercooked meat and unpasteurized cheese, and check any regular medicines with your doctor.", food: "Anchor each meal with protein — eggs, yogurt, chicken or beans. Pair iron-rich foods with vitamin C (a squeeze of lemon, a little orange juice) to absorb more of the iron." },
         7:  { guide: "Your booking visit covers blood pressure, blood tests and your health history. Ask which screening tests are offered later and when, so nothing comes as a surprise.", food: "Calcium for building bones: milk, yogurt, cheese, or fortified plant milks. If nausea is strong, small frequent meals beat three big ones." },
-        8:  { guide: "The first ultrasound window opens for many moms around now. Keep a running list of questions for your provider — no question is too small to write down.", food: "Choline supports baby's developing brain, and eggs are the easiest source. Add colorful vegetables for vitamin A — but skip high-dose retinol supplements and liver." },
-        9:  { guide: "Nausea often peaks around weeks 9–10; if you can't keep fluids down for 24 hours, call your provider. A dental checkup is safe in pregnancy and worth booking.", food: "Cold foods often smell less strong — smoothies, yogurt and fruit can be easier than hot meals. Sip water steadily through the day rather than in big glasses." },
+        8:  { guide: "The first ultrasound window opens for many moms around now. Keep a running list of questions for your doctor — no question is too small to write down.", food: "Choline supports baby's developing brain, and eggs are the easiest source. Add colorful vegetables for vitamin A — but skip high-dose retinol supplements and liver." },
+        9:  { guide: "Nausea often peaks around weeks 9–10; if you can't keep fluids down for 24 hours, call your doctor. A dental checkup is safe in pregnancy and worth booking.", food: "Cold foods often smell less strong — smoothies, yogurt and fruit can be easier than hot meals. Sip water steadily through the day rather than in big glasses." },
         10: { guide: "Screening blood tests such as NIPT become available around now if you choose them. Gentle pelvic-floor (Kegel) exercises can start whenever you're ready.", food: "Iron needs climb: red meat, spinach, beans and lentils. Oats, prunes and plenty of water help the constipation that often starts around now." },
-        11: { guide: "The first-trimester screening window (weeks 11–14) is opening — your provider will explain the NT scan and blood-test options so you can decide calmly.", food: "Omega-3s for brain building: two portions of low-mercury fish a week, like salmon or sardines — or walnuts and ground flaxseed if you don't eat fish." },
+        11: { guide: "The first-trimester screening window (weeks 11–14) is opening — your doctor will explain the NT scan and blood-test options so you can decide calmly.", food: "Omega-3s for brain building: two portions of low-mercury fish a week, like salmon or sardines — or walnuts and ground flaxseed if you don't eat fish." },
         12: { guide: "The NT scan usually happens between weeks 11 and 14. Many moms share their news after this scan — but the timing is entirely yours.", food: "Build a rainbow plate: peppers, carrots, berries, greens. Vitamin C eaten alongside plant iron (spinach, lentils) roughly doubles how much iron you absorb." },
         13: { guide: "The first trimester ends this week. As energy returns, plan gentle regular movement — a 30-minute walk most days is a lovely target.", food: "With appetite returning, add a protein-and-healthy-fat snack: Greek yogurt with nuts, or hummus with crunchy vegetables." },
-        14: { guide: "Welcome to the second trimester. Your provider may discuss the quad-screen blood test (weeks 15–20). Start favoring your side for sleep as your bump grows.", food: "Fiber is your friend against constipation now: whole grains, beans, pears — and always water alongside, or fiber can't do its job." },
+        14: { guide: "Welcome to the second trimester. Your doctor may discuss the quad-screen blood test (weeks 15–20). Start favoring your side for sleep as your bump grows.", food: "Fiber is your friend against constipation now: whole grains, beans, pears — and always water alongside, or fiber can't do its job." },
         15: { guide: "Brief, sharp round-ligament twinges when you stand or roll over are common now and usually harmless; mention anything persistent or one-sided.", food: "Calcium and vitamin D work as a team — dairy or fortified alternatives, plus a short walk in daylight for both vitamin D and mood." },
         16: { guide: "Blood pressure and urine are checked at visits from here on. If you haven't felt movement yet, that's normal — most first-time moms feel it between weeks 18 and 22.", food: "Magnesium-rich foods — pumpkin seeds, beans, bananas — can help with the night leg cramps that often start around now." },
         17: { guide: "Your anatomy (anomaly) scan is usually booked for weeks 18–22. Decide beforehand whether you'd like to learn baby's sex if it's visible.", food: "Keep protein steady through baby's growth spurt: roughly a palm-sized portion at lunch and at dinner." },
         18: { guide: "Anatomy-scan week for many moms. Back pain often starts now — supportive shoes and a pillow between your knees at night genuinely help.", food: "Snack smart for steady energy: cheese with apple, a small handful of trail mix, or a boiled egg — little and often beats big and rare." },
-        19: { guide: "Tell your provider promptly about sudden or severe swelling of the hands or face, or a headache that won't lift. Otherwise, enjoy watching the bump change week to week.", food: "Hydration quietly helps headaches and cramps: keep a bottle with you and aim to refill it at least twice a day." },
-        20: { guide: "Halfway there. The anatomy scan is usually complete by now, and your provider may start measuring your bump (fundal height) at visits.", food: "Iron plus protein for the big blood-volume build: lentil soup, eggs, lean meat. Keep caffeine around or under 200 mg a day — roughly one mug of coffee." },
+        19: { guide: "Tell your doctor promptly about sudden or severe swelling of the hands or face, or a headache that won't lift. Otherwise, enjoy watching the bump change week to week.", food: "Hydration quietly helps headaches and cramps: keep a bottle with you and aim to refill it at least twice a day." },
+        20: { guide: "Halfway there. The anatomy scan is usually complete by now, and your doctor may start measuring your bump (fundal height) at visits.", food: "Iron plus protein for the big blood-volume build: lentil soup, eggs, lean meat. Keep caffeine around or under 200 mg a day — roughly one mug of coffee." },
         21: { guide: "Baby's movements are settling into patterns — start noticing them. If a pattern changes or movements slow, always get checked the same day.", food: "Taste buds are forming and flavors from your meals reach baby, so enjoy variety: garlic, carrot, leafy greens and gentle spices." },
         22: { guide: "Ask about whooping-cough (pertussis) vaccination, often offered between now and week 32. Keep up gentle stretching for your back and hips.", food: "Healthy fats for the growing brain: olive oil, avocado, nuts, oily fish. Try swapping one fried snack for a handful of nuts." },
         23: { guide: "Glucose screening for gestational diabetes is usually booked for weeks 24–28. Around now is a calm time to start comparing birth-place options.", food: "A steady plate — half vegetables, a quarter protein, a quarter whole grains — keeps blood sugar, energy and mood on an even keel." },
         24: { guide: "A milestone week. The glucose-test window opens. Learn the signs of preterm labor — regular tightening, pelvic pressure, leaking fluid — and call right away if you're ever unsure.", food: "Vitamin C supports healthy membranes and immunity: citrus, kiwi, peppers and strawberries are an easy daily add." },
         25: { guide: "Weight, blood pressure and urine checks continue at each visit. Start a simple birth-preferences list — it can evolve as you learn more.", food: "Calcium needs stay high while baby's bones harden: include dairy or fortified alternatives at two or three meals a day." },
         26: { guide: "Ask about your glucose results and iron levels — anemia is common now and very treatable. Blurry or changed vision is usually temporary, but mention it.", food: "If heartburn is starting, smaller evening meals and going easy on spice and fat late in the day help; finish dinner at least two hours before bed." },
-        27: { guide: "The second trimester ends this week. Your provider may offer anti-D if your blood type is Rh-negative, with repeat blood tests around week 28.", food: "A protein-and-iron plate a few times this week: eggs with spinach, chicken with beans, or fish with greens." },
+        27: { guide: "The second trimester ends this week. Your doctor may offer anti-D if your blood type is Rh-negative, with repeat blood tests around week 28.", food: "A protein-and-iron plate a few times this week: eggs with spinach, chicken with beans, or fish with greens." },
         28: { guide: "Third trimester. Kick counting often starts now — learn your baby's pattern and report reduced movement the same day, every time. Visits usually become every two weeks from here.", food: "Fiber and fluids keep bowels and energy steady. Dates get their moment later (from about week 36) — for now, whole grains and vegetables do the work." },
         29: { guide: "Ask about Tdap and flu vaccines if you haven't had them yet. If it works that way where you live, start registering baby with a pediatrician or family doctor.", food: "Omega-3 still matters — baby's brain grows fastest in these weeks. Salmon or sardines, or an algae-based supplement if you don't eat fish." },
         30: { guide: "Three-quarters grown. Know the warning signs of preeclampsia: severe headache, vision changes, sudden swelling, pain high in the belly — seek care promptly if any appear.", food: "Space is getting tight, so smaller, more frequent meals sit better. Protein at every meal supports baby's steady weight gain." },
         31: { guide: "Finalize your birth-plan draft and talk it through at your next visit. Confirm where to go and exactly who to call when labor starts.", food: "Iron-and-vitamin-C pairings matter as blood demands peak: spinach with lemon, beans with tomato, lentils with peppers." },
         32: { guide: "Pack your hospital bag this week — the free checklist further down this page has everything. Find the car seat and read its manual once, calmly, before you need it.", food: "Potassium-rich foods — banana, potato, yogurt — can ease cramps and support healthy blood pressure." },
-        33: { guide: "Your provider may check baby's position around now. Practice the route to the hospital or birth center — including once at night.", food: "Heartburn often peaks now: ginger tea after meals, small dinners, and an extra pillow to raise your head at night." },
+        33: { guide: "Your doctor may check baby's position around now. Practice the route to the hospital or birth center — including once at night.", food: "Heartburn often peaks now: ginger tea after meals, small dinners, and an extra pillow to raise your head at night." },
         34: { guide: "The Group B strep (GBS) swab is usually done around weeks 35–37. Install the car seat now and practice the harness on a teddy — future-you says thanks.", food: "Keep blood sugar steady for energy: pair carbs with protein or fat — apple with peanut butter, toast with egg." },
         35: { guide: "Learn the true signs of labor: regular contractions that grow stronger and closer, waters breaking, a bloody show. Save the hospital's number in your phone today.", food: "Stock the freezer with easy postpartum meals now — soups, curries and oat bakes freeze beautifully and future-you will be so grateful." },
-        36: { guide: "Weekly visits often start now. Lightening may ease your breathing while bathroom trips increase — both normal. Keep the hospital bag by the door.", food: "Some moms begin eating about six dates a day from week 36 — studies suggest they may support a smoother labor. Check with your provider first if you have gestational diabetes." },
+        36: { guide: "Weekly visits often start now. Lightening may ease your breathing while bathroom trips increase — both normal. Keep the hospital bag by the door.", food: "Some moms begin eating about six dates a day from week 36 — studies suggest they may support a smoother labor. Check with your doctor first if you have gestational diabetes." },
         37: { guide: "Early term. Finalize who gets called when labor starts, childcare and pet plans, and the drive plan. Rest whenever you can — it's preparation, not idleness.", food: "Eat for steady energy rather than 'for two': soups, eggs, yogurt and fruit — light meals sit better as space gets tight." },
         38: { guide: "Keep your phone charged and your bag by the door. Gentle walks and warm showers ease aches and may help baby settle low.", food: "Hydration is labor prep: keep water plus a sports drink or coconut water in your bag for sips during labor." },
-        39: { guide: "Full term. If you pass your due date, your provider will discuss monitoring and induction options around week 41 — you have a voice in every decision.", food: "Enjoy favorite comfort foods, and keep meals regular so your energy is there whenever labor begins." },
-        40: { guide: "Due-date week. Going to 41–42 weeks is common and usually closely monitored. Stay in touch with your provider, rest, and let baby pick the day.", food: "Keep it simple and nourishing: light carb-plus-protein snacks — toast with egg, banana with yogurt — to keep energy up without heaviness." }
+        39: { guide: "Full term. If you pass your due date, your doctor will discuss monitoring and induction options around week 41 — you have a voice in every decision.", food: "Enjoy favorite comfort foods, and keep meals regular so your energy is there whenever labor begins." },
+        40: { guide: "Due-date week. Going to 41–42 weeks is common and usually closely monitored. Stay in touch with your doctor, rest, and let baby pick the day.", food: "Keep it simple and nourishing: light carb-plus-protein snacks — toast with egg, banana with yogurt — to keep energy up without heaviness." }
       };
 
       var range = document.getElementById("wkRange");
@@ -2065,7 +2071,42 @@
 
       /* ---------- Due date calculator ---------- */
       var calcWeek = null;
+      var calcLmp = null;
       var dueJump = document.getElementById("dueJump");
+      var calcSaveBtn = document.getElementById("calcSaveTracker");
+      var calcSaveMsg = document.getElementById("calcSaveMsg");
+      /* The calculator and My Week Tracker share one saved date
+         (localStorage key "bb_week_tracker", owned by the tracker code
+         below). After a calculation, this button reflects whether that
+         exact pregnancy is already saved in the tracker. */
+      function refreshCalcSaveBtn() {
+        if (!calcSaveBtn) return;
+        if (!calcLmp) {
+          calcSaveBtn.hidden = true;
+          calcSaveBtn.disabled = false;
+          calcSaveBtn.textContent = "Save this date to My Week Tracker";
+          calcSaveMsg.textContent = "";
+          return;
+        }
+        calcSaveBtn.hidden = false;
+        var already = false;
+        if (typeof trackerSaved !== "undefined" && trackerSaved && typeof trackerCompute === "function") {
+          var info = trackerCompute(trackerSaved);
+          if (info) {
+            var calcDue = new Date(new Date(calcLmp + "T00:00:00").getTime() + 280 * 86400000);
+            already = info.due.getTime() === calcDue.getTime();
+          }
+        }
+        if (already) {
+          calcSaveBtn.disabled = true;
+          calcSaveBtn.textContent = "Saved in My Week Tracker ✓";
+          calcSaveMsg.textContent = "This date is already saved — My Week Tracker in Mom Tools below opens on your week.";
+        } else {
+          calcSaveBtn.disabled = false;
+          calcSaveBtn.textContent = "Save this date to My Week Tracker";
+          calcSaveMsg.textContent = "";
+        }
+      }
       document.getElementById("calcBtn").addEventListener("click", function () {
         var val = document.getElementById("lmpDate").value;
         var msg = document.getElementById("calcMsg");
@@ -2074,21 +2115,24 @@
         function resetResult() {
           /* An invalid date must never leave a previous due date on screen */
           calcWeek = null;
+          calcLmp = null;
           big.textContent = "Your due date will appear here";
           det.textContent = "Pick your date and tap calculate — we'll also find your current week for you.";
           dueJump.disabled = true;
           dueJump.textContent = "See my week in the explorer";
+          refreshCalcSaveBtn();
         }
         if (!val) { resetResult(); msg.textContent = "Please choose the first day of your last period first."; return; }
         var lmp = new Date(val + "T00:00:00");
         var today = new Date(); today.setHours(0, 0, 0, 0);
         if (isNaN(lmp.getTime()) || lmp > today) { resetResult(); msg.textContent = "That date looks like it's in the future — please check it and try again."; return; }
         var days = Math.round((today - lmp) / 86400000);
-        if (days > 294) { resetResult(); msg.textContent = "That's more than 42 weeks ago — if you're still pregnant, please check the date with your provider."; return; }
+        if (days > 294) { resetResult(); msg.textContent = "That's more than 42 weeks ago — if you're still pregnant, please check the date with your doctor."; return; }
         var due = new Date(lmp.getTime() + 280 * 86400000);
         var fmt = due.toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
         var wks = Math.floor(days / 7), rem = days % 7;
         calcWeek = Math.max(4, Math.min(40, wks));
+        calcLmp = val;
         big.textContent = "Due around " + fmt;
         det.textContent = days < 28
           ? "You're in the very first weeks — the explorer starts at Week 4, right where most moms find out."
@@ -2096,11 +2140,45 @@
         msg.textContent = "Most babies arrive a little before or after the estimate — only about 1 in 20 shows up on the exact day.";
         dueJump.disabled = false;
         dueJump.textContent = "See Week " + calcWeek + " in the explorer";
+        refreshCalcSaveBtn();
       });
       dueJump.addEventListener("click", function () {
         if (calcWeek === null) return;
         setWeek(calcWeek);
         document.getElementById("weeks").scrollIntoView({ behavior: "smooth" });
+      });
+      /* Save the calculated date straight into My Week Tracker — same
+         storage entry the tracker's own Save button writes, so the two
+         tools can never disagree and the date is typed only once. */
+      calcSaveBtn.addEventListener("click", function () {
+        if (!calcLmp) return;
+        var entry = { type: "lmp", date: calcLmp };
+        bbStoreSet("bb_week_tracker", entry);
+        trackerSaved = entry;
+        var tLmp = document.getElementById("trackerLmp");
+        var tDue = document.getElementById("trackerDue");
+        if (tLmp) tLmp.value = calcLmp;
+        if (tDue) tDue.value = "";
+        var tMsg = document.getElementById("trackerMsg");
+        if (tMsg) tMsg.textContent = "";
+        renderTracker();
+        refreshCalcSaveBtn();
+        calcSaveMsg.textContent = "Saved ✓ — My Week Tracker now opens on Week " + calcWeek + ". Taking you to it…";
+        setTimeout(function () {
+          var card = document.getElementById("trackerCard");
+          if (card) card.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 650);
+      });
+      /* If the date is edited after calculating, the old result no longer
+         matches — withdraw the save button until Calculate is tapped again */
+      document.getElementById("lmpDate").addEventListener("change", function () {
+        if (calcLmp && this.value !== calcLmp) {
+          calcLmp = null;
+          calcSaveBtn.hidden = true;
+          calcSaveBtn.disabled = false;
+          calcSaveBtn.textContent = "Save this date to My Week Tracker";
+          calcSaveMsg.textContent = "Date changed — tap “Calculate my due date” again, then save the fresh result to your tracker.";
+        }
       });
 
       /* ---------- Site search ---------- */
@@ -2597,6 +2675,7 @@
         bbStoreSet("bb_week_tracker", trackerSaved);
         msg.textContent = "";
         renderTracker();
+        if (typeof refreshCalcSaveBtn === "function") refreshCalcSaveBtn();
       });
       document.getElementById("trackerOpenBtn").addEventListener("click", function () {
         if (trackerWeek === null) return;
@@ -2610,6 +2689,7 @@
         document.getElementById("trackerLmp").value = "";
         document.getElementById("trackerMsg").textContent = "";
         renderTracker();
+        if (typeof refreshCalcSaveBtn === "function") refreshCalcSaveBtn();
       });
       renderTracker();
 
