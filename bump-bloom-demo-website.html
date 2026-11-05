@@ -708,6 +708,23 @@
       .legal p { color: var(--ink-soft); font-size: 16.5px; line-height: 1.65; margin: 0 0 12px; }
       .legal ul { margin: 0 0 12px; padding-left: 22px; display: grid; gap: 6px; }
       .legal li { color: var(--ink-soft); font-size: 16.5px; line-height: 1.6; }
+      .publisher-block {
+        margin: 28px 0 10px; background: var(--surface); border: 1px solid var(--line);
+        border-radius: var(--radius); padding: 26px 28px; box-shadow: var(--shadow);
+      }
+      .publisher-block .publisher-kicker {
+        font-size: 12.5px; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase;
+        color: var(--rose); margin: 0 0 6px;
+      }
+      .publisher-block h3 { margin: 0 0 10px; font-size: 26px; }
+      .publisher-block p { color: var(--ink-soft); }
+      .publisher-block .publisher-disclaimer {
+        background: var(--rose-soft); border-radius: 14px; padding: 14px 16px;
+        color: var(--ink); font-size: 16.5px; line-height: 1.65; margin: 0 0 18px;
+      }
+      .publisher-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+      .publisher-contact { margin: 14px 0 0 !important; font-size: 15.5px !important; }
+      .publisher-contact a { font-weight: 800; }
 
       @media (max-width: 960px) {
         .cards { grid-template-columns: repeat(2, 1fr); }
@@ -1594,6 +1611,16 @@
           </ul>
           <h3>Who's behind it</h3>
           <p>Bump &amp; Bloom is made by <b>Tanvir Ahmed</b> and <b>Nadia Akter</b> — a small family team, not a big company. Alongside the channel, we also write family activity books for children — word searches, mazes and activity books to keep little hands happily busy. You can find them on Tanvir's <a href="https://www.amazon.com/author/tanvirahmed" target="_blank" rel="noopener">Amazon author page</a>.</p>
+          <div class="publisher-block">
+            <p class="publisher-kicker">Meet the publisher</p>
+            <h3>Created by Tanvir Ahmed</h3>
+            <p>Bump &amp; Bloom is created and run by Tanvir Ahmed, a KDP publisher and the author of our pregnancy guides and children's activity books on Amazon. Every week-by-week guide here is prepared from widely used pregnancy references and written in warm, plain language for new moms.</p>
+            <p class="publisher-disclaimer">I'm not a medical professional — Bump &amp; Bloom shares general information only, never medical advice. Please always check anything personal with your own doctor or midwife.</p>
+            <div class="publisher-actions">
+              <a class="btn btn-rose" href="https://www.amazon.com/author/tanvirahmed" target="_blank" rel="noopener">Tanvir Ahmed on Amazon</a>
+            </div>
+            <p class="publisher-contact">Questions or feedback: <a href="mailto:hello@hellobumpandbloom.com">hello@hellobumpandbloom.com</a></p>
+          </div>
           <h3>One honest promise</h3>
           <p>We are <b>not</b> doctors, midwives or medical professionals, and Bump &amp; Bloom does not give medical advice. Everything we share is general information — things that help many moms, explained kindly — so you can feel more prepared when you talk with your own doctor or midwife. Your provider knows you and your baby; always follow their guidance first.</p>
           <p>Thank you for spending a little of your pregnancy with us. We're glad you're here.</p>
