@@ -713,17 +713,41 @@
         .nav-links .nav-links-app { display: block; }
       }
 
-      /* ---------- Follow ---------- */
-      .follow-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+      /* ---------- Follow: one compact line of chips, never wraps ---------- */
+      .follow-grid { display: flex; flex-wrap: nowrap; gap: 8px; width: 100%; }
       .follow-card {
-        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-        padding: 20px 16px; text-decoration: none; color: inherit; text-align: center;
+        flex: 1 1 0; min-width: 0;
+        display: inline-flex; flex-direction: row; align-items: center; justify-content: center; gap: 6px;
+        background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+        padding: 13px 8px; min-height: 48px; text-decoration: none; color: inherit; text-align: center;
         transition: transform 0.15s ease, box-shadow 0.15s ease;
       }
-      .follow-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-      .follow-card svg { margin: 0 auto 10px; }
-      .follow-card b { display: block; color: var(--plum-deep); font-size: 16.5px; }
-      .follow-card span { font-size: 13.5px; color: var(--ink-soft); }
+      .follow-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+      .follow-card svg { width: 22px; height: 22px; flex: none; margin: 0; display: block; }
+      .follow-card b {
+        display: block; color: var(--plum-deep); font-size: 14.5px; font-weight: 800;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.2;
+      }
+      .follow-card .lab-short { display: none; }
+      @media (max-width: 900px) {
+        .follow-grid { gap: 6px; }
+        .follow-card { padding: 11px 4px; gap: 4px; min-height: 44px; }
+        .follow-card svg { width: 20px; height: 20px; }
+        .follow-card b { font-size: 12.5px; }
+      }
+      @media (max-width: 640px) {
+        .follow-grid { gap: 4px; }
+        .follow-card { padding: 11px 2px; gap: 3px; min-height: 44px; }
+        .follow-card svg { width: 18px; height: 18px; }
+        .follow-card .lab-full { display: none; }
+        .follow-card .lab-short { display: block; font-size: 9.5px; letter-spacing: -0.01em; }
+      }
+      @media (max-width: 420px) {
+        .follow-grid { gap: 3px; }
+        .follow-card { padding: 10px 1px; gap: 2px; min-height: 42px; }
+        .follow-card svg { width: 16px; height: 16px; }
+        .follow-card .lab-short { font-size: 8.5px; }
+      }
 
       /* ---------- Get the app (PWA) ---------- */
       .app-card {
@@ -798,10 +822,84 @@
       .newsletter-card p { color: var(--ink-soft); margin: 0 auto 26px; max-width: 34em; }
       .newsletter-card .fineprint { margin: 18px auto 0; max-width: 34em; }
 
-      footer { border-top: 1px solid var(--line); padding: 36px 0 44px; margin-top: 10px; }
-      .foot-grid { display: flex; gap: 30px; flex-wrap: wrap; justify-content: space-between; }
-      footer p { color: var(--ink-soft); font-size: 14.5px; max-width: 52em; }
-      footer .fname { font-family: "DM Serif Display", Georgia, serif; font-size: 22px; color: var(--plum); }
+      /* ---------- Footer: deep-plum, matching the blog footer ---------- */
+      footer {
+        background: #2b1a25; color: #f9e9d9; margin-top: 10px;
+        padding: 30px 0 34px; border-top: 1px solid #2b1a25;
+      }
+      .foot-ornament {
+        display: flex; align-items: center; justify-content: center; gap: 16px;
+        margin-bottom: 34px; font-size: 19px; line-height: 1;
+      }
+      .foot-ornament::before, .foot-ornament::after {
+        content: ""; height: 1px; width: min(210px, 32vw);
+        background: linear-gradient(90deg, transparent, rgba(232, 138, 165, 0.75));
+      }
+      .foot-ornament::after { background: linear-gradient(90deg, rgba(232, 138, 165, 0.75), transparent); }
+      .foot-cols { display: grid; grid-template-columns: 1.25fr 0.85fr 1fr; gap: 46px; }
+      .foot-brand {
+        font-family: "DM Serif Display", Georgia, serif; font-style: italic; font-weight: 400;
+        font-size: clamp(29px, 3.4vw, 37px); line-height: 1.28; color: #fdf0e2; margin: 0;
+      }
+      footer h3 {
+        font-family: "DM Serif Display", Georgia, serif; font-weight: 400;
+        font-size: 24px; color: #ebc07f; margin: 4px 0 18px;
+      }
+      .foot-social { display: flex; flex-wrap: nowrap; gap: 7px; margin: 22px 0 18px; }
+      .foot-social a {
+        width: 40px; height: 40px; flex: 0 1 40px; min-width: 0;
+        border: 1px solid rgba(249, 233, 217, 0.45); border-radius: 50%;
+        display: inline-flex; align-items: center; justify-content: center;
+        color: #fdf0e2; text-decoration: none;
+        transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+      }
+      .foot-social a:hover { border-color: #e88aa5; color: #e88aa5; background: rgba(232, 138, 165, 0.12); }
+      .foot-social svg { width: 20px; height: 20px; display: block; }
+      .foot-contact { font-size: 15.5px; color: #f9e9d9; margin: 0; line-height: 1.55; }
+      .foot-contact a {
+        color: #f0c987; font-weight: 800; text-decoration: underline;
+        text-decoration-color: #c99a3f; text-decoration-thickness: 1.5px; text-underline-offset: 4px;
+        overflow-wrap: anywhere;
+      }
+      .foot-contact a:hover { color: #e88aa5; text-decoration-color: #e88aa5; }
+      .foot-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 13px; }
+      .foot-links a { color: #f9e9d9; text-decoration: none; font-size: 16px; }
+      .foot-links a:hover { color: #e88aa5; text-decoration: underline; text-underline-offset: 4px; }
+      .foot-note { font-size: 15.5px; line-height: 1.65; color: #f3ddcb; margin: 0 0 18px; }
+      .foot-legal { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+      .foot-legal a { color: #f0c987; font-weight: 700; font-size: 15px; text-decoration: none; }
+      .foot-legal a:hover { color: #e88aa5; text-decoration: underline; text-underline-offset: 4px; }
+      .foot-subscribe {
+        margin-top: 38px; border: 1px solid rgba(249, 233, 217, 0.35); border-radius: 18px;
+        padding: 18px 20px; display: flex; align-items: center; gap: 16px;
+      }
+      .foot-subscribe p {
+        margin: 0; flex: 1 1 auto; min-width: 0;
+        font-family: "DM Serif Display", Georgia, serif; font-size: 18.5px; line-height: 1.35; color: #fdf0e2;
+      }
+      .foot-sub-btn {
+        flex: none; background: #f3bccb; color: #2b1a25; text-decoration: none;
+        font-weight: 800; font-size: 13.5px; letter-spacing: 0.07em;
+        padding: 12px 22px; border-radius: 999px; white-space: nowrap;
+        transition: background 0.15s ease, transform 0.15s ease;
+      }
+      .foot-sub-btn:hover { background: #e88aa5; transform: translateY(-2px); }
+      .foot-bottom {
+        margin: 28px 0 0; padding-top: 20px; border-top: 1px solid rgba(249, 233, 217, 0.18);
+        text-align: center; font-size: 14px; color: #e8cfc0;
+      }
+      .foot-bottom em { color: #fdf0e2; }
+      @media (max-width: 860px) {
+        .foot-cols { grid-template-columns: 1fr; gap: 34px; }
+        .foot-subscribe { padding: 16px; }
+        .foot-subscribe p { font-size: 16.5px; }
+        .foot-sub-btn { padding: 11px 16px; font-size: 12.5px; }
+      }
+      @media (max-width: 420px) {
+        .foot-social { gap: 5px; }
+        .foot-social a { width: 36px; height: 36px; }
+        .foot-social svg { width: 17px; height: 17px; }
+      }
 
       /* ---------- About / Privacy / Terms pages ---------- */
       .legal-page[hidden] { display: none !important; }
@@ -1769,39 +1867,39 @@
           <div class="follow-grid">
             <a class="follow-card" href="https://www.youtube.com/@HelloBumpAndBloom" target="_blank" rel="noopener">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="#c65d7b" aria-hidden="true"><path d="M23 12s0-3.85-.49-5.7a2.9 2.9 0 0 0-2.05-2.05C18.6 3.75 12 3.75 12 3.75s-6.6 0-8.46.5A2.9 2.9 0 0 0 1.49 6.3C1 8.15 1 12 1 12s0 3.85.49 5.7a2.9 2.9 0 0 0 2.05 2.05c1.86.5 8.46.5 8.46.5s6.6 0 8.46-.5a2.9 2.9 0 0 0 2.05-2.05C23 15.85 23 12 23 12ZM9.75 15.5v-7L15.5 12l-5.75 3.5Z"/></svg>
-              <b>YouTube</b><span>@HelloBumpAndBloom</span>
+              <b class="lab-full">YouTube</b><b class="lab-short" aria-hidden="true">YT</b>
             </a>
             <a class="follow-card" href="https://www.facebook.com/BumpNBloom/" target="_blank" rel="noopener">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="#c65d7b" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2.1-.1-2.1 0-3.6 1.3-3.6 3.7V11H8.2v3h2.5v7h2.8Z"/></svg>
-              <b>Facebook</b><span>Bump &amp; Bloom Page</span>
+              <b class="lab-full">Facebook</b><b class="lab-short" aria-hidden="true">FB</b>
             </a>
             <a class="follow-card" href="https://www.instagram.com/bumpandbloom.daily" target="_blank" rel="noopener">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c65d7b" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.15" fill="#c65d7b" stroke="none"/></svg>
-              <b>Instagram</b><span>@bumpandbloom.daily</span>
+              <b class="lab-full">Instagram</b><b class="lab-short" aria-hidden="true">IG</b>
             </a>
             <a class="follow-card" href="https://www.pinterest.com/bumpandbloomdaily/" target="_blank" rel="noopener">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="#c65d7b" aria-hidden="true"><path d="M12 3a9 9 0 0 0-3.3 17.36c-.08-.75-.15-1.9.03-2.72l1.16-4.9s-.3-.6-.3-1.47c0-1.38.8-2.4 1.8-2.4.85 0 1.26.63 1.26 1.4 0 .85-.54 2.13-.82 3.31-.24.99.5 1.79 1.47 1.79 1.77 0 3.13-1.86 3.13-4.55 0-2.38-1.71-4.05-4.16-4.05a4.31 4.31 0 0 0-4.5 4.33c0 .86.33 1.78.74 2.28a.3.3 0 0 1 .07.29l-.28 1.13c-.04.18-.15.22-.34.13-1.25-.58-2.03-2.4-2.03-3.87 0-3.15 2.29-6.04 6.6-6.04 3.46 0 6.16 2.47 6.16 5.77 0 3.44-2.17 6.22-5.19 6.22-1.01 0-1.97-.53-2.29-1.15l-.62 2.37c-.23.87-.84 1.96-1.25 2.62A9 9 0 1 0 12 3Z"/></svg>
-              <b>Pinterest</b><span>@bumpandbloomdaily</span>
+              <b class="lab-full">Pinterest</b><b class="lab-short" aria-hidden="true">Pin</b>
             </a>
             <a class="follow-card" href="https://www.threads.net/@bumpandbloom.daily" target="_blank" rel="noopener">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c65d7b" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="13.5" r="3.6"/><path d="M14.6 13.5c.6-5.8-1.6-9.3-5-9.7C5.2 3.3 2.7 7 2.6 11.4c-.1 5 3.4 9 8.4 9.3 4 .3 7.3-1.7 8.6-5" stroke-linecap="round"/></svg>
-              <b>Threads</b><span>@bumpandbloom.daily</span>
+              <b class="lab-full">Threads</b><b class="lab-short" aria-hidden="true">Threads</b>
             </a>
             <a class="follow-card" href="https://www.tiktok.com/@hellobumpandbloom" target="_blank" rel="noopener">
               <svg width="30" height="30" viewBox="0 0 448 512" fill="#c65d7b" aria-hidden="true"><path d="M448 209.9a210.1 210.1 0 0 1-122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3v71.1a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2 122.2 122.2 0 0 0 53.9 80.2A121.4 121.4 0 0 0 448 209.9Z"/></svg>
-              <b>TikTok</b><span>@hellobumpandbloom</span>
+              <b class="lab-full">TikTok</b><b class="lab-short" aria-hidden="true">TikTok</b>
             </a>
             <a class="follow-card" href="https://medium.com/@hellobumpandbloom" target="_blank" rel="noopener">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="#c65d7b" aria-hidden="true"><ellipse cx="6.5" cy="12" rx="4" ry="5.2"/><ellipse cx="13.8" cy="12" rx="2" ry="5.2"/><ellipse cx="18.9" cy="12" rx="0.95" ry="5.2"/></svg>
-              <b>Medium</b><span>@hellobumpandbloom</span>
+              <b class="lab-full">Medium</b><b class="lab-short" aria-hidden="true">Med</b>
             </a>
             <a class="follow-card" href="https://x.com/bumpandbloom" target="_blank" rel="noopener">
               <svg width="30" height="30" viewBox="0 0 512 512" fill="#c65d7b" aria-hidden="true"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48h145.6L272.9 180.9 389.2 48Zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8Z"/></svg>
-              <b>X</b><span>@bumpandbloom</span>
+              <b class="lab-full">X</b><b class="lab-short" aria-hidden="true">X</b>
             </a>
             <a class="follow-card" href="https://bumpandbloom.blogspot.com/" target="_blank" rel="noopener">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c65d7b" stroke-width="1.8" aria-hidden="true"><path d="M5 4h14v13H9l-4 3V4Z" stroke-linejoin="round"/><path d="M8.5 9h7M8.5 12.5h4.5" stroke-linecap="round"/></svg>
-              <b>The Blog</b><span>Read every guide</span>
+              <b class="lab-full">The Blog</b><b class="lab-short" aria-hidden="true">Blog</b>
             </a>
           </div>
         </div>
@@ -1893,15 +1991,48 @@
 
     <footer>
       <div class="wrap">
-        <div class="foot-grid">
+        <div class="foot-ornament" aria-hidden="true"><span>&#127800;</span></div>
+        <div class="foot-cols">
           <div>
-            <div class="fname">Bump &amp; Bloom</div>
-            <p style="margin:6px 0 0">Created by Tanvir Ahmed — calm, week-by-week pregnancy guidance for new moms.</p>
+            <p class="foot-brand">Bump &amp; Bloom &#8212;<br />Pregnancy Week by<br />Week</p>
+            <div class="foot-social">
+              <a href="https://www.youtube.com/@HelloBumpAndBloom" target="_blank" rel="noopener" aria-label="Bump and Bloom on YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.85-.49-5.7a2.9 2.9 0 0 0-2.05-2.05C18.6 3.75 12 3.75 12 3.75s-6.6 0-8.46.5A2.9 2.9 0 0 0 1.49 6.3C1 8.15 1 12 1 12s0 3.85.49 5.7a2.9 2.9 0 0 0 2.05 2.05c1.86.5 8.46.5 8.46.5s6.6 0 8.46-.5a2.9 2.9 0 0 0 2.05-2.05C23 15.85 23 12 23 12ZM9.75 15.5v-7L15.5 12l-5.75 3.5Z"/></svg></a>
+              <a href="https://www.facebook.com/BumpNBloom/" target="_blank" rel="noopener" aria-label="Bump and Bloom on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2.1-.1-2.1 0-3.6 1.3-3.6 3.7V11H8.2v3h2.5v7h2.8Z"/></svg></a>
+              <a href="https://www.instagram.com/bumpandbloom.daily" target="_blank" rel="noopener" aria-label="Bump and Bloom on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.15" fill="currentColor" stroke="none"/></svg></a>
+              <a href="https://www.pinterest.com/bumpandbloomdaily/" target="_blank" rel="noopener" aria-label="Bump and Bloom on Pinterest"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a9 9 0 0 0-3.3 17.36c-.08-.75-.15-1.9.03-2.72l1.16-4.9s-.3-.6-.3-1.47c0-1.38.8-2.4 1.8-2.4.85 0 1.26.63 1.26 1.4 0 .85-.54 2.13-.82 3.31-.24.99.5 1.79 1.47 1.79 1.77 0 3.13-1.86 3.13-4.55 0-2.38-1.71-4.05-4.16-4.05a4.31 4.31 0 0 0-4.5 4.33c0 .86.33 1.78.74 2.28a.3.3 0 0 1 .07.29l-.28 1.13c-.04.18-.15.22-.34.13-1.25-.58-2.03-2.4-2.03-3.87 0-3.15 2.29-6.04 6.6-6.04 3.46 0 6.16 2.47 6.16 5.77 0 3.44-2.17 6.22-5.19 6.22-1.01 0-1.97-.53-2.29-1.15l-.62 2.37c-.23.87-.84 1.96-1.25 2.62A9 9 0 1 0 12 3Z"/></svg></a>
+              <a href="https://www.threads.net/@bumpandbloom.daily" target="_blank" rel="noopener" aria-label="Bump and Bloom on Threads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="13.5" r="3.6"/><path d="M14.6 13.5c.6-5.8-1.6-9.3-5-9.7C5.2 3.3 2.7 7 2.6 11.4c-.1 5 3.4 9 8.4 9.3 4 .3 7.3-1.7 8.6-5" stroke-linecap="round"/></svg></a>
+              <a href="https://www.tiktok.com/@hellobumpandbloom" target="_blank" rel="noopener" aria-label="Bump and Bloom on TikTok"><svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M448 209.9a210.1 210.1 0 0 1-122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3v71.1a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2 122.2 122.2 0 0 0 53.9 80.2A121.4 121.4 0 0 0 448 209.9Z"/></svg></a>
+              <a href="https://medium.com/@hellobumpandbloom" target="_blank" rel="noopener" aria-label="Bump and Bloom on Medium"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="6.5" cy="12" rx="4" ry="5.2"/><ellipse cx="13.8" cy="12" rx="2" ry="5.2"/><ellipse cx="18.9" cy="12" rx="0.95" ry="5.2"/></svg></a>
+              <a href="https://x.com/bumpandbloom" target="_blank" rel="noopener" aria-label="Bump and Bloom on X"><svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48h145.6L272.9 180.9 389.2 48Zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8Z"/></svg></a>
+            </div>
+            <p class="foot-contact">Questions, mama? Write to us:<br /><a href="mailto:hello@hellobumpandbloom.com">hello@hellobumpandbloom.com</a></p>
+          </div>
+          <nav aria-label="Footer">
+            <h3>Gentle Places</h3>
+            <ul class="foot-links">
+              <li><a href="#top">Home</a></li>
+              <li><a href="#weeks">Pregnancy Week by Week</a></li>
+              <li><a href="#read">Pregnancy Tips</a></li>
+              <li><a href="#weeks">First Trimester</a></li>
+              <li><a href="https://www.youtube.com/@HelloBumpAndBloom" target="_blank" rel="noopener">Our YouTube Channel</a></li>
+              <li><a href="https://www.amazon.com/author/tanvirahmed" target="_blank" rel="noopener">Our Books on Amazon</a></li>
+            </ul>
+          </nav>
+          <div>
+            <h3>A Gentle Note</h3>
+            <p class="foot-note">&#127800; Bump &amp; Bloom shares general pregnancy and baby-care information for education only. It is not medical advice. Always follow your own doctor or midwife for personal care.</p>
+            <div class="foot-legal">
+              <a href="#about">About Us</a>
+              <a href="#privacy">Privacy Policy</a>
+              <a href="#terms">Terms &amp; Conditions</a>
+            </div>
           </div>
         </div>
-        <p>Bump &amp; Bloom shares general information about pregnancy, birth and baby care for education and comfort. It is not medical advice and does not replace your doctor, midwife or health visitor. If anything worries you about your pregnancy or your baby, please contact your doctor straight away.</p>
-        <p><a href="#about">About Us</a> · <a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms &amp; Conditions</a></p>
-        <p>&copy; 2026 Bump &amp; Bloom · <a href="https://bumpandbloom.blogspot.com/" target="_blank" rel="noopener">Blog</a> · <a href="https://www.youtube.com/@HelloBumpAndBloom" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.facebook.com/BumpNBloom" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/bumpandbloom.daily" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.pinterest.com/bumpandbloomdaily/" target="_blank" rel="noopener">Pinterest</a> · <a href="https://www.threads.net/@bumpandbloom.daily" target="_blank" rel="noopener">Threads</a> · <a href="https://www.tiktok.com/@hellobumpandbloom" target="_blank" rel="noopener">TikTok</a> · <a href="https://medium.com/@hellobumpandbloom" target="_blank" rel="noopener">Medium</a> · <a href="https://x.com/bumpandbloom" target="_blank" rel="noopener">X</a> · <a href="https://www.amazon.com/author/tanvirahmed" target="_blank" rel="noopener">Amazon Author Page</a></p>
+        <div class="foot-subscribe">
+          <p>&#127800; The Daily Bloom &#8212; one gentle email each morning, in your inbox.</p>
+          <a class="foot-sub-btn" href="#newsletter">SUBSCRIBE FREE</a>
+        </div>
+        <p class="foot-bottom">&copy; 2026 Bump &amp; Bloom &#8212; Pregnancy Week by Week &middot; <em>With love, Bump &amp; Bloom</em> &#127800;</p>
       </div>
     </footer>
 
