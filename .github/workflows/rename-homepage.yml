@@ -1,0 +1,23 @@
+name: Rename homepage to index.html
+
+on:
+  push:
+    paths:
+      - '.github/workflows/rename-homepage.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace index.html with uploaded export
+        run: |
+          git rm -q index.html
+          git mv bump-bloom-demo-website.html index.html
+          git config user.name "TanvirAhmed-BD"
+          git config user.email "TanvirAhmed-BD@users.noreply.github.com"
+          git commit -m "Rename uploaded homepage to index.html"
+          git push
