@@ -47,7 +47,9 @@
         "https://www.fiverr.com/tanvirahmed_ctg",
         "https://www.youtube.com/@HelloBumpAndBloom",
         "https://github.com/TanvirAhmed-BD",
-        "https://www.instagram.com/bumpandbloom.daily"
+        "https://www.instagram.com/bumpandbloom.daily",
+        "https://medium.com/@hellobumpandbloom",
+        "https://x.com/bumpandbloom"
       ]
     }
     </script>
@@ -378,6 +380,16 @@
         .card.week-highlight { animation: week-pulse 1.1s ease 2; }
         @keyframes week-pulse { 0%, 100% { outline-offset: 3px; } 50% { outline-offset: 7px; } }
       }
+      /* Blog guides reveal in sixes, so the index stays short */
+      .blog-more-row { display: flex; justify-content: center; margin-top: 28px; }
+      .blog-more-btn {
+        display: inline-flex; align-items: center; gap: 10px;
+        background: var(--surface); border: 2px solid var(--rose); color: var(--plum);
+        font: inherit; font-weight: 800; font-size: 16px;
+        padding: 12px 26px; border-radius: 999px; cursor: pointer;
+        transition: background 0.15s ease, transform 0.15s ease;
+      }
+      .blog-more-btn:hover { background: var(--rose-soft); transform: translateY(-2px); }
 
       /* ---------- Series list ---------- */
       .split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: center; }
@@ -1396,7 +1408,7 @@
                 <li>Snacks &amp; drinks for two</li>
                 <li>Coins/card for parking &amp; vending</li>
                 <li>Camera &amp; charger</li>
-                <li>A small pillow for the chair</li>
+                <li><a class="aff" href="https://link.amazon/B0eWoRTP0" target="_blank" rel="noopener sponsored">A small pillow for the chair</a></li>
               </ul>
             </div>
           </div>
@@ -1457,6 +1469,9 @@
                 <span class="card-link">Browse the boards &#8594;</span>
               </div>
             </a>
+          </div>
+          <div class="blog-more-row" id="blogMoreRow">
+            <button class="blog-more-btn" type="button" id="blogMoreBtn" aria-expanded="false" aria-controls="blogCards">See more guides &#8595;</button>
           </div>
         </div>
       </section>
@@ -1697,6 +1712,9 @@
               </div>
             
             </div>
+          <div class="books-toggle-row" id="booksMoreRow">
+            <button class="books-toggle" type="button" id="booksMoreBtn" aria-expanded="false" aria-controls="booksShelf"><span id="booksMoreLabel">See more books</span> <span class="chev" aria-hidden="true">&#8595;</span></button>
+          </div>
           
           
           <p class="disclosure">Disclosure: the Amazon links above are affiliate links (store: nestpicks09-20). If you buy through them, we may earn a small commission at no extra cost to you — thank you for supporting Bump &amp; Bloom.</p>
@@ -1765,6 +1783,22 @@
               <svg width="30" height="30" viewBox="0 0 24 24" fill="#c65d7b" aria-hidden="true"><path d="M12 3a9 9 0 0 0-3.3 17.36c-.08-.75-.15-1.9.03-2.72l1.16-4.9s-.3-.6-.3-1.47c0-1.38.8-2.4 1.8-2.4.85 0 1.26.63 1.26 1.4 0 .85-.54 2.13-.82 3.31-.24.99.5 1.79 1.47 1.79 1.77 0 3.13-1.86 3.13-4.55 0-2.38-1.71-4.05-4.16-4.05a4.31 4.31 0 0 0-4.5 4.33c0 .86.33 1.78.74 2.28a.3.3 0 0 1 .07.29l-.28 1.13c-.04.18-.15.22-.34.13-1.25-.58-2.03-2.4-2.03-3.87 0-3.15 2.29-6.04 6.6-6.04 3.46 0 6.16 2.47 6.16 5.77 0 3.44-2.17 6.22-5.19 6.22-1.01 0-1.97-.53-2.29-1.15l-.62 2.37c-.23.87-.84 1.96-1.25 2.62A9 9 0 1 0 12 3Z"/></svg>
               <b>Pinterest</b><span>@bumpandbloomdaily</span>
             </a>
+            <a class="follow-card" href="https://www.threads.net/@bumpandbloom.daily" target="_blank" rel="noopener">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c65d7b" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="13.5" r="3.6"/><path d="M14.6 13.5c.6-5.8-1.6-9.3-5-9.7C5.2 3.3 2.7 7 2.6 11.4c-.1 5 3.4 9 8.4 9.3 4 .3 7.3-1.7 8.6-5" stroke-linecap="round"/></svg>
+              <b>Threads</b><span>@bumpandbloom.daily</span>
+            </a>
+            <a class="follow-card" href="https://www.tiktok.com/@hellobumpandbloom" target="_blank" rel="noopener">
+              <svg width="30" height="30" viewBox="0 0 448 512" fill="#c65d7b" aria-hidden="true"><path d="M448 209.9a210.1 210.1 0 0 1-122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3v71.1a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2 122.2 122.2 0 0 0 53.9 80.2A121.4 121.4 0 0 0 448 209.9Z"/></svg>
+              <b>TikTok</b><span>@hellobumpandbloom</span>
+            </a>
+            <a class="follow-card" href="https://medium.com/@hellobumpandbloom" target="_blank" rel="noopener">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="#c65d7b" aria-hidden="true"><ellipse cx="6.5" cy="12" rx="4" ry="5.2"/><ellipse cx="13.8" cy="12" rx="2" ry="5.2"/><ellipse cx="18.9" cy="12" rx="0.95" ry="5.2"/></svg>
+              <b>Medium</b><span>@hellobumpandbloom</span>
+            </a>
+            <a class="follow-card" href="https://x.com/bumpandbloom" target="_blank" rel="noopener">
+              <svg width="30" height="30" viewBox="0 0 512 512" fill="#c65d7b" aria-hidden="true"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48h145.6L272.9 180.9 389.2 48Zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8Z"/></svg>
+              <b>X</b><span>@bumpandbloom</span>
+            </a>
             <a class="follow-card" href="https://bumpandbloom.blogspot.com/" target="_blank" rel="noopener">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c65d7b" stroke-width="1.8" aria-hidden="true"><path d="M5 4h14v13H9l-4 3V4Z" stroke-linejoin="round"/><path d="M8.5 9h7M8.5 12.5h4.5" stroke-linecap="round"/></svg>
               <b>The Blog</b><span>Read every guide</span>
@@ -1786,7 +1820,7 @@
             <li><b>The YouTube channel</b> — <a href="https://www.youtube.com/@HelloBumpAndBloom" target="_blank" rel="noopener">@HelloBumpAndBloom</a>, with three long videos every week (Tuesday, Thursday and Saturday) and a gentle Short every single day.</li>
             <li><b>This website</b> — week-by-week guides for Weeks 4–40, handy mom tools, and the Daily Bloom: one small kind thing to read each day.</li>
             <li><b>The blog</b> — longer written guides at <a href="https://bumpandbloom.blogspot.com/" target="_blank" rel="noopener">bumpandbloom.blogspot.com</a>.</li>
-            <li><b>Our social pages</b> — a Facebook page, Instagram <a href="https://www.instagram.com/bumpandbloom.daily" target="_blank" rel="noopener">@bumpandbloom.daily</a> and Pinterest <a href="https://www.pinterest.com/bumpandbloomdaily/" target="_blank" rel="noopener">@bumpandbloomdaily</a>, where the same gentle guidance shows up in your feed.</li>
+            <li><b>Our social pages</b> — a Facebook page, Instagram <a href="https://www.instagram.com/bumpandbloom.daily" target="_blank" rel="noopener">@bumpandbloom.daily</a> and Pinterest <a href="https://www.pinterest.com/bumpandbloomdaily/" target="_blank" rel="noopener">@bumpandbloomdaily</a>, plus Threads <a href="https://www.threads.net/@bumpandbloom.daily" target="_blank" rel="noopener">@bumpandbloom.daily</a>, TikTok <a href="https://www.tiktok.com/@hellobumpandbloom" target="_blank" rel="noopener">@hellobumpandbloom</a>, Medium <a href="https://medium.com/@hellobumpandbloom" target="_blank" rel="noopener">@hellobumpandbloom</a> and X <a href="https://x.com/bumpandbloom" target="_blank" rel="noopener">@bumpandbloom</a>, where the same gentle guidance shows up in your feed.</li>
           </ul>
           <h3>Who's behind it</h3>
           <p>Bump &amp; Bloom is made by <b>Tanvir Ahmed</b> and <b>Nadia Akter</b> — a small family team, not a big company. Alongside the channel, we also write family activity books for children — word searches, mazes and activity books to keep little hands happily busy. You can find them on Tanvir's <a href="https://www.amazon.com/author/tanvirahmed" target="_blank" rel="noopener">Amazon author page</a>.</p>
@@ -1867,7 +1901,7 @@
         </div>
         <p>Bump &amp; Bloom shares general information about pregnancy, birth and baby care for education and comfort. It is not medical advice and does not replace your doctor, midwife or health visitor. If anything worries you about your pregnancy or your baby, please contact your doctor straight away.</p>
         <p><a href="#about">About Us</a> · <a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms &amp; Conditions</a></p>
-        <p>&copy; 2026 Bump &amp; Bloom · <a href="https://bumpandbloom.blogspot.com/" target="_blank" rel="noopener">Blog</a> · <a href="https://www.youtube.com/@HelloBumpAndBloom" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.amazon.com/author/tanvirahmed" target="_blank" rel="noopener">Amazon Author Page</a></p>
+        <p>&copy; 2026 Bump &amp; Bloom · <a href="https://bumpandbloom.blogspot.com/" target="_blank" rel="noopener">Blog</a> · <a href="https://www.youtube.com/@HelloBumpAndBloom" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.facebook.com/BumpNBloom" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/bumpandbloom.daily" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.pinterest.com/bumpandbloomdaily/" target="_blank" rel="noopener">Pinterest</a> · <a href="https://www.threads.net/@bumpandbloom.daily" target="_blank" rel="noopener">Threads</a> · <a href="https://www.tiktok.com/@hellobumpandbloom" target="_blank" rel="noopener">TikTok</a> · <a href="https://medium.com/@hellobumpandbloom" target="_blank" rel="noopener">Medium</a> · <a href="https://x.com/bumpandbloom" target="_blank" rel="noopener">X</a> · <a href="https://www.amazon.com/author/tanvirahmed" target="_blank" rel="noopener">Amazon Author Page</a></p>
       </div>
     </footer>
 
@@ -2851,19 +2885,44 @@
         var tabs = Array.prototype.slice.call(document.querySelectorAll(".tri-tab"));
         var status = document.getElementById("blogStatus");
         var cards = Array.prototype.slice.call(grid.children);
+        var moreRow = document.getElementById("blogMoreRow");
+        var moreBtn = document.getElementById("blogMoreBtn");
+        var readSection = document.getElementById("read");
+        /* The 39-card index reveals in sixes: short page first, the rest
+           one warm button-tap away */
+        var PAGE_SIZE = 6;
+        var activeTri = "all";
+        var shownCount = PAGE_SIZE;
+
+        function cardMatches(c, tri) {
+          var wk = c.getAttribute("data-week");
+          if (tri === "all") return true;
+          if (wk) return triOf(Number(wk)) === tri;
+          return tri === "t1"; /* non-week reads live with the 1st Trimester */
+        }
+        function matchingCards() {
+          return cards.filter(function (c) { return cardMatches(c, activeTri); });
+        }
+        /* Paint the grid for the current filter + reveal count, and set
+           the See more / Show less button to match */
+        function renderGuides() {
+          var matching = matchingCards();
+          cards.forEach(function (c) { c.style.display = "none"; });
+          matching.slice(0, shownCount).forEach(function (c) { c.style.display = ""; });
+          if (moreRow && moreBtn) {
+            var allShown = shownCount >= matching.length;
+            moreRow.style.display = matching.length > PAGE_SIZE ? "" : "none";
+            moreBtn.textContent = allShown ? "Show less ↑" : "See more guides ↓";
+            moreBtn.setAttribute("aria-expanded", allShown ? "true" : "false");
+          }
+        }
         function applyFilter(tri) {
+          activeTri = tri;
+          shownCount = PAGE_SIZE;
           tabs.forEach(function (t) {
             var on = t.getAttribute("data-tri") === tri;
             t.classList.toggle("on", on);
             t.setAttribute("aria-selected", on ? "true" : "false");
-          });
-          cards.forEach(function (c) {
-            var wk = c.getAttribute("data-week");
-            var show;
-            if (tri === "all") show = true;
-            else if (wk) show = triOf(Number(wk)) === tri;
-            else show = tri === "t1"; /* non-week reads live with the 1st Trimester */
-            c.style.display = show ? "" : "none";
           });
           if (status) {
             status.textContent =
@@ -2872,17 +2931,34 @@
               tri === "t2" ? "Showing the 2nd Trimester — Weeks 14–27." :
                              "Showing the 3rd Trimester — Weeks 28–40.";
           }
+          renderGuides();
         }
         tabs.forEach(function (t) {
           t.addEventListener("click", function () { applyFilter(t.getAttribute("data-tri")); });
         });
+        if (moreBtn) {
+          moreBtn.addEventListener("click", function () {
+            if (shownCount >= matchingCards().length) {
+              shownCount = PAGE_SIZE;
+              renderGuides();
+              if (readSection) readSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            } else {
+              shownCount += PAGE_SIZE;
+              renderGuides();
+            }
+          });
+        }
         if (jump) {
           jump.addEventListener("change", function () {
             if (!jump.value) return;
             var w = Number(jump.value);
-            applyFilter(triOf(w));
-            if (typeof setWeek === "function") setWeek(w);
             var target = document.getElementById("week-card-" + w);
+            applyFilter(triOf(w));
+            /* Reveal every card up to and including the chosen week, so
+               the jump target is actually on the page to scroll to */
+            var idx = matchingCards().indexOf(target);
+            if (idx >= 0) { shownCount = idx + 1; renderGuides(); }
+            if (typeof setWeek === "function") setWeek(w);
             if (target) {
               cards.forEach(function (c) { c.classList.remove("week-highlight"); });
               target.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -2893,6 +2969,46 @@
           });
         }
         applyFilter("all");
+      })();
+    </script>
+    <script>
+      /* ---------- Books shelf "See more" ----------
+         The 21-book shelf reveals in steps — 8 at a time on desktop (two
+         rows of the grid), 4 at a time on phones, where the shelf is a
+         swipe row and must never hold all 21 books at once. */
+      (function () {
+        var shelf = document.getElementById("booksShelf");
+        var btn = document.getElementById("booksMoreBtn");
+        var label = document.getElementById("booksMoreLabel");
+        var row = document.getElementById("booksMoreRow");
+        var section = document.getElementById("books");
+        if (!shelf || !btn) return;
+        var books = Array.prototype.slice.call(shelf.querySelectorAll(".book"));
+        var mq = window.matchMedia("(max-width: 768px)");
+        function pageSize() { return mq.matches ? 4 : 8; }
+        var shown = pageSize();
+        function renderBooks() {
+          books.forEach(function (b, i) { b.style.display = i < shown ? "" : "none"; });
+          var allShown = shown >= books.length;
+          if (row) row.style.display = books.length > pageSize() ? "" : "none";
+          if (label) label.textContent = allShown ? "Show less" : "See more books";
+          btn.setAttribute("aria-expanded", allShown ? "true" : "false");
+        }
+        btn.addEventListener("click", function () {
+          if (shown >= books.length) {
+            shown = pageSize();
+            renderBooks();
+            if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+            shelf.scrollTo({ left: 0, behavior: "smooth" });
+          } else {
+            shown += pageSize();
+            renderBooks();
+          }
+        });
+        function onViewportChange() { shown = pageSize(); renderBooks(); }
+        if (mq.addEventListener) mq.addEventListener("change", onViewportChange);
+        else if (mq.addListener) mq.addListener(onViewportChange);
+        renderBooks();
       })();
     </script>
     <script>
