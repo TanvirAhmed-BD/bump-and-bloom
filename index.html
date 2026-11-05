@@ -666,6 +666,15 @@
       .check-col li { font-size: 15px; color: var(--ink-soft); padding-left: 24px; position: relative; }
       .check-col li::before { content: "✓"; position: absolute; left: 2px; color: var(--sage); font-weight: 800; }
       @media (prefers-color-scheme: light) { .check-col li::before { color: #55704b; } }
+      .check-col li a.aff, .aff-highlight a {
+        color: inherit; text-decoration: underline;
+        text-decoration-color: var(--gold); text-decoration-thickness: 1.5px;
+        text-underline-offset: 3px;
+      }
+      .check-col li a.aff:hover, .aff-highlight a:hover { color: var(--plum); text-decoration-color: var(--rose); }
+      .aff-disclosure { font-size: 13.5px; color: var(--ink-soft); margin: 0 0 10px; max-width: 52em; line-height: 1.55; }
+      .aff-highlight { font-size: 15.5px; color: var(--ink); margin: 0 0 4px; }
+      .aff-highlight a { font-weight: 700; }
 
       @media (max-width: 680px) {
         .journey, .check-grid { grid-template-columns: 1fr; }
@@ -900,6 +909,8 @@
         #checklist .check-grid { grid-template-columns: 1fr; gap: 12px; }
         #checklist .check-col { border: 1px solid #bbb; break-inside: avoid; }
         #checklist .hero-cta, #checklist .print-note { display: none !important; }
+        #checklist a { color: #222 !important; text-decoration: none !important; }
+        #checklist a::after { content: none !important; }
       }
     </style>
   </head>
@@ -1354,26 +1365,28 @@
             <h2>Free: the hospital bag checklist</h2>
             <p>Everything worth packing for delivery day — for you, for baby, and for your partner — in one calm, printable list. Here's a peek at what's on it:</p>
           </div>
+          <p class="aff-disclosure">Some of the links below are affiliate links — if you buy through them, we may earn a small commission at no extra cost to you. As an Amazon Associate, we earn from qualifying purchases.</p>
+          <p class="aff-highlight">Want half of this list in one box? The <a href="https://www.amazon.com/dp/B07TW86LR8?tag=nestpicks09-20" target="_blank" rel="noopener sponsored">Frida Mom Labor &amp; Postpartum Kit</a> covers it →</p>
           <div class="check-grid">
             <div class="check-col">
               <h3>For mom</h3>
               <ul>
                 <li>Birth plan &amp; hospital paperwork</li>
-                <li>Comfy nightgown that opens in front</li>
-                <li>Slippers, socks &amp; a warm robe</li>
-                <li>Lip balm &amp; hair ties</li>
-                <li>Phone charger with a long cable</li>
-                <li>Snacks &amp; a water bottle</li>
+                <li><a class="aff" href="https://link.amazon/B0i2JJbyz" target="_blank" rel="noopener sponsored">Comfy nightgown that opens in front</a></li>
+                <li><a class="aff" href="https://link.amazon/B04a3IPD1" target="_blank" rel="noopener sponsored">Slippers</a>, socks &amp; a <a class="aff" href="https://link.amazon/B09SF9YTy" target="_blank" rel="noopener sponsored">warm robe</a></li>
+                <li><a class="aff" href="https://link.amazon/B0cjNORXz" target="_blank" rel="noopener sponsored">Lip balm</a> &amp; <a class="aff" href="https://link.amazon/B0bSvZvh5" target="_blank" rel="noopener sponsored">hair ties</a></li>
+                <li><a class="aff" href="https://link.amazon/B05bSmLDP" target="_blank" rel="noopener sponsored">Phone charger with a long cable</a></li>
+                <li>Snacks &amp; a <a class="aff" href="https://link.amazon/B07QEtFbt" target="_blank" rel="noopener sponsored">water bottle</a></li>
               </ul>
             </div>
             <div class="check-col">
               <h3>For baby</h3>
               <ul>
-                <li>Going-home outfit (two sizes)</li>
-                <li>Soft blanket &amp; a knitted hat</li>
-                <li>Newborn diapers &amp; wipes</li>
-                <li>Burp cloths</li>
-                <li>Car seat, fitted before the day</li>
+                <li><a class="aff" href="https://link.amazon/B0dhx60qP" target="_blank" rel="noopener sponsored">Going-home outfit (two sizes)</a></li>
+                <li><a class="aff" href="https://link.amazon/B06IJ5S2j" target="_blank" rel="noopener sponsored">Soft blanket</a> &amp; a <a class="aff" href="https://link.amazon/B018AK0sH" target="_blank" rel="noopener sponsored">knitted hat</a></li>
+                <li><a class="aff" href="https://link.amazon/B04NYsieC" target="_blank" rel="noopener sponsored">Newborn diapers</a> &amp; <a class="aff" href="https://link.amazon/B0fFqB5c9" target="_blank" rel="noopener sponsored">wipes</a></li>
+                <li><a class="aff" href="https://link.amazon/B0f5A6dHH" target="_blank" rel="noopener sponsored">Burp cloths</a></li>
+                <li><a class="aff" href="https://link.amazon/B011Mqm9o" target="_blank" rel="noopener sponsored">Car seat, fitted before the day</a></li>
               </ul>
             </div>
             <div class="check-col">
