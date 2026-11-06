@@ -13,7 +13,8 @@ jobs:
           if [ -f bump-bloom-demo-website.html ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git mv bump-bloom-demo-website.html index.html
+            mv -f bump-bloom-demo-website.html index.html
+            git add -A
             git commit -m "Rename homepage export to index.html"
             git push
           else
