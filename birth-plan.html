@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing Your Birth Plan (Without the Stress) | Bump &amp; Bloom</title>
+<meta name="description" content="One calm page that tells your birth team who you are and what matters to you: labor preferences, the pain-relief ladder, delivery and first-hour wishes, cesarean preferences, the one-page rule — plus a fill-in template.">
+<link rel="canonical" href="https://hellobumpandbloom.com/birth-plan.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#2b121d; --bg2:#2b1a25; --card:#3a1e2e; --card-line:#5f1d37;
+    --cream:#fdf0e2; --cream-dim:#f9e9d9; --pink:#e88aa5; --pink-deep:#c65d7b;
+    --rose:#7c2949; --gold:#f0c987; --gold-deep:#c99a3f; --green:#a9c29b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--cream);font-family:"Nunito Sans",system-ui,sans-serif;line-height:1.65}
+  a{color:var(--gold)}
+  .wrap{max-width:820px;margin:0 auto;padding:0 20px 64px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 0 6px}
+  .brand{font-family:"DM Serif Display",Georgia,serif;font-size:22px;color:var(--cream);text-decoration:none}
+  .brand span{color:var(--pink)}
+  .home-link{font-size:14px;font-weight:700;text-decoration:none;border:1px solid var(--card-line);padding:6px 14px;border-radius:999px;color:var(--cream-dim)}
+  .kicker{color:var(--pink);font-weight:800;letter-spacing:.14em;font-size:13px;text-transform:uppercase;margin-top:26px}
+  h1{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(32px,6vw,46px);line-height:1.15;margin:8px 0 10px}
+  .lede{color:var(--cream-dim);font-size:18px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 8px}
+  .chip{background:var(--card);border:1px solid var(--card-line);border-radius:14px;padding:10px 16px;font-size:15px}
+  .chip b{color:var(--gold);display:block;font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+  .progress{margin:18px 0 6px;background:var(--bg2);border:1px solid var(--card-line);border-radius:999px;height:14px;overflow:hidden}
+  .progress i{display:block;height:100%;width:50%;background:linear-gradient(90deg,var(--pink-deep),var(--pink));border-radius:999px}
+  .progress-note{font-size:14px;color:var(--pink);font-weight:700}
+  .video-box{margin:30px 0;background:var(--bg2);border:1px solid var(--card-line);border-radius:18px;padding:26px;text-align:center}
+  .video-box .play{font-size:34px}
+  .video-box h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:24px;margin:6px 0}
+  .video-box p{color:var(--cream-dim)}
+  .video-frame{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .btn{display:inline-block;margin-top:14px;background:var(--pink-deep);color:#fff;font-weight:800;text-decoration:none;padding:10px 22px;border-radius:999px}
+  article h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:28px;margin:38px 0 10px;color:var(--cream)}
+  article p{color:var(--cream-dim);margin-bottom:14px;font-size:17px}
+  article p b{color:var(--cream)}
+  .alert{background:#3d1526;border:1px solid var(--rose);border-left:5px solid var(--pink-deep);border-radius:14px;padding:20px 22px;margin:30px 0}
+  .alert h2{margin-top:0;color:var(--pink)}
+  .alert p{color:var(--cream-dim);margin:0;font-size:16px}
+  .card{background:var(--card);border:1px solid var(--card-line);border-radius:18px;padding:22px 24px;margin:30px 0}
+  .card h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:25px;margin-bottom:12px}
+  .card ul{list-style:none}
+  .card li{padding:7px 0 7px 30px;position:relative;color:var(--cream-dim);font-size:16.5px}
+  .card li::before{content:"✓";position:absolute;left:2px;color:var(--green);font-weight:800}
+  .takeaways li::before{content:"🌸";font-size:14px;top:9px}
+  .prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 8px}
+  .prevnext a{flex:1;background:var(--bg2);border:1px solid var(--card-line);border-radius:14px;padding:14px 18px;text-decoration:none;color:var(--cream-dim);font-weight:700;font-size:15px}
+  .prevnext a.next{text-align:right}
+  .prevnext small{display:block;color:var(--pink);font-size:12.5px;text-transform:uppercase;letter-spacing:.08em}
+  .newsletter{background:linear-gradient(135deg,var(--rose),var(--pink-deep));border-radius:18px;padding:26px;text-align:center;margin:34px 0}
+  .newsletter h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:25px;margin-bottom:6px}
+  .newsletter p{color:#ffe9ef}
+  .newsletter .btn{background:#fff;color:var(--rose)}
+  .blog-link{text-align:center;margin:22px 0;font-size:16px}
+  footer{border-top:1px solid var(--card-line);margin-top:44px;padding-top:20px;text-align:center;color:#cbb3a6;font-size:14px}
+  .disclaimer{font-style:italic;color:#cbb3a6;font-size:14.5px;text-align:center;margin-top:26px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="brand" href="https://hellobumpandbloom.com/">🌸 Bump <span>&amp; Bloom</span></a>
+    <a class="home-link" href="https://hellobumpandbloom.com/">← Back home</a>
+  </div>
+
+  <p class="kicker">Bump &amp; Bloom Guide · Birth &amp; Baby Prep</p>
+  <h1>Writing Your Birth Plan (Without the Stress)</h1>
+  <p class="lede">The birth plan might be the most misunderstood document in pregnancy. It's not a script your birth must follow, and it is definitely not a test you can pass or fail. Done right, it's one calm page that tells your birth team who you are and what matters to you — written while you're clear-headed, for a day when you'll be busy doing something more important than explaining yourself. Let's write yours, section by section.</p>
+
+  <div class="chips">
+    <div class="chip"><b>Length</b>📄 One page — readable in 90 seconds</div>
+    <div class="chip"><b>Draft it</b>🗓️ Around weeks 32–34</div>
+    <div class="chip"><b>Discuss it</b>💬 With your provider by ~week 36</div>
+    <div class="chip"><b>Copies</b>🖨️ Chart · hospital bag · partner's phone</div>
+  </div>
+
+  <div class="video-box" id="videoBox">
+    <div class="play">🎬</div>
+    <h2>Watch the video guide</h2>
+    <p id="videoNote">This guide's video arrives on <b>Tuesday, December 22</b> — the full guide is right here below in the meantime, and the video will appear in this very spot the moment it's live.</p>
+    <a class="btn" href="https://www.youtube.com/@HelloBumpAndBloom" target="_blank" rel="noopener">Visit the channel meanwhile →</a>
+  </div>
+
+  <article>
+    <h2>What a birth plan is — and what it isn't</h2>
+    <p>A birth plan — many hospitals prefer the name "birth preferences," which honestly says it better — is a <b>communication tool</b>. It speaks for you in a room where the team may have just met you, where shifts change mid-labor, and where you will be, quite reasonably, focused inward. Writing one is also a thinking tool: the act of making it walks you through your options while you still have weeks to learn, ask, and decide — instead of meeting every choice for the first time at eight centimeters.</p>
+    <p>Now, what it isn't. It isn't a contract: nobody is legally bound by your page, and situations in a birth can change what's possible. It isn't a guarantee: birth follows your baby's and your body's lead, and no document can schedule that. And it is most certainly not a scorecard for how good your birth was. The plans that "work" aren't the ones where every line happened — they're the ones where the mother felt informed, consulted, and respected all the way through. Aim for that, and your plan is already succeeding.</p>
+
+    <h2>Before you write: learn your options</h2>
+    <p>A good birth plan starts with a little homework, most of it done by asking questions. At one of your third-trimester visits, ask your provider: <b>"What's routine at the place where I'll deliver? And what real choices do I have?"</b> Because some things on internet checklists aren't options at some hospitals, and some wonderful options — like laboring in a tub — exist at yours and appear on nobody's checklist. The hospital tour or childbirth class, if offered, fills in the rest of the map.</p>
+    <p>Timing: many women draft the plan somewhere around <b>weeks 32 to 34</b>, and talk it through with their provider by about <b>week 36</b> — early enough to discuss anything your provider wants to flag, late enough that your decisions are real. Then it goes into the chart, into the <a href="hospital-bag.html">hospital bag</a>, and out of your worry loop.</p>
+    <p>One tone tip that experienced nurses quietly bless: write in preferences, not ultimatums. "I would love to…" and "If possible, we'd like…" travel much further than pages of "absolutely no…" — because your team is made of humans who respond to being recruited, not instructed. You are inviting them onto your side. Which, of course, is exactly where they belong.</p>
+
+    <h2>Section by section, part 1: labor preferences</h2>
+    <p>Start with a header: your name, your partner or support person's name, your provider's name, and your due date — so any team member can pick the page up cold. A line for anything your team should see fast — like a serious allergy — belongs there too, with the detail itself discussed with your provider and in your chart.</p>
+    <p>Then, labor preferences. <b>Who is in the room:</b> name your support people, knowing hospitals may have their own policies about numbers. <b>The environment:</b> dim lights if possible, your own music or playlist, your own gown or pillow if that brings you comfort. <b>Movement:</b> many women want the freedom to walk the halls, change positions, and use a shower or tub if their birthplace offers them — write that you'd like to move and be upright as much as you can. <b>Monitoring and IVs</b> are "discuss with your provider" territory: some births are monitored continuously, some intermittently; some labors run a continuous IV, some use a saline lock so you can move freely. Your plan states what you'd prefer where there's a choice — and your provider will tell you honestly where there is one. <b>Food and drink:</b> policies vary by hospital, so write "within this hospital's policy, I'd like…" and let a light snack or ice chips be a stated hope rather than a surprise argument.</p>
+
+    <h2>Section by section, part 2: pain relief — a ladder, not a line</h2>
+    <p>Write this section as a ladder, not a line in the sand. Most plans list the comfort measures they'd like to try first: breathing and relaxation techniques, position changes, walking, water — a shower or tub — massage, and a birth ball. Then the medical options, which are conversations to have with your provider and the anesthesia team: nitrous oxide, offered in some hospitals; IV pain medication; and the epidural. Your plan can say what you think now — "I'd like to work with comfort measures first and ask for an epidural if I need one" is a complete, respectable sentence.</p>
+    <p>One small line does heavy lifting here: how and when you'd like relief offered. Some women write, "Please don't offer pain medication; I'll ask when I want it." Others write, "Please offer when you see me struggling." Neither is braver. Both are clarity, and clarity is a gift to everyone in the room. And one freedom to write down for yourself, not the staff: <b>you are allowed to change your mind in the moment, in either direction.</b> A plan records your thinking beforehand; it does not outrank the woman in labor. She always has the final vote.</p>
+
+    <h2>Section by section, part 3: delivery &amp; the first hour</h2>
+    <p><b>Pushing:</b> note if you'd like to try different positions, and whether you'd prefer to follow your own urges or be guided — both are common, and it's a conversation to preview with your provider. <b>Perineal support:</b> many teams offer warm compresses and gentle support techniques; note that you'd like them if your team uses them. <b>The umbilical cord:</b> delayed clamping for a minute or so is routine in many hospitals now — say if you'd like it, and name who, if anyone, would like to cut the cord.</p>
+    <p>Then the first hour, the part many mothers care about most. <b>Skin-to-skin contact</b> right after birth, with checks done on your chest where possible, is the classic request — write it plainly. <b>Your feeding intention:</b> breastfeeding, formula, or "I'll decide in the moment" — all three are legitimate lines on a plan, because a fed baby and a supported mother are the actual goal. Ask in advance what your hospital's routine newborn procedures are — things like eye ointment, the vitamin K injection, and the first bath — so there are no surprises, and note preferences where a choice genuinely exists, like delaying the first bath. And if you have a boy, the circumcision question: note your decision, or honestly note "we'll decide after birth." A plan that includes your real answers — including the undecided ones — is doing its job.</p>
+
+    <h2>The flexibility mindset: when plans change</h2>
+    <p>Now the section that makes the whole document honest: what if things change. Labors get induced. Labors stall. Sometimes a cesarean becomes the safest, kindest route to your baby. A strong birth plan walks through that door calmly in advance, with <b>cesarean preferences</b> too: who accompanies you, music if the room allows it, asking to see your baby right away, and skin-to-skin in the operating room or recovery area where your hospital offers it. Writing those lines now costs you nothing and can reclaim a sense of authorship on a road you didn't expect to take.</p>
+    <p>Here's the mindset underneath it all: <b>hold your values firmly and your details loosely.</b> Your values — to be informed, to be asked, to meet your baby safely — can survive every twist birth has. Your details — the playlist, the positions, the exact sequence — are preferences in a living situation. The goal was never "the plan happened." The goal is a healthy baby and a respected mama, who can tell her birth story and feel that she was in it — consulted, considered, and never a bystander. Birth plans don't control births. They make sure that, whatever road the day takes, you travel it as a participant.</p>
+
+    <h2>The one-page rule &amp; logistics</h2>
+    <p>Now the famous rule: <b>one page</b>. Bullet points, plain words, generous font size. If it can't be read in ninety seconds by a nurse who's meeting you mid-labor, it's too long — the story of your reasoning belongs in your conversations with your provider, not in the document. One page also forces the right question: if I could only tell them five things, which five? Those five are your plan's heartbeat — everything else is harmony.</p>
+    <p>Logistics, quickly, because they're the difference between a plan and a paper: make at least <b>three copies</b>. One goes to your provider for the chart at the visit where you discuss it. One goes in the hospital bag. One lives as a photo on your partner's phone, because paper has a mysterious relationship with 3 a.m. And walk your support person through the page once, out loud: on the day, they may be your voice for stretches of time, and "it's in the plan, second section" is a sentence they should be able to say with confidence.</p>
+  </article>
+
+
+  <div class="card">
+    <h2>📝 Your fill-in birth plan template</h2>
+    <p style="color:var(--cream-dim);font-size:16.5px;margin-bottom:12px">Copy this into your notes app or print it, fill it in slowly over a week — no decision has to happen in one sitting — then bring the draft to your provider conversation and refine it together. Leave blanks where you're undecided; cross things out; add the one preference that's yours alone.</p>
+    <p style="color:var(--cream-dim);font-size:16.5px;margin-bottom:12px"><b style="color:var(--cream)">MY BIRTH PREFERENCES</b><br>
+    Name: _______________ · Support person: _______________<br>
+    Provider: _______________ · Due date: _______________<br>
+    Please note first: _______________ (allergy / important info for my team)</p>
+    <p style="color:var(--cream-dim);font-size:16.5px;margin-bottom:12px"><b style="color:var(--cream)">LABOR</b><br>
+    • Support people I'd like with me: _______________<br>
+    • Environment: ☐ dim lights · ☐ my music · ☐ my own gown/pillow if possible<br>
+    • Movement: I'd like to ☐ walk &amp; change positions · ☐ use a shower/tub if available<br>
+    • Monitoring &amp; IVs (discussed with my provider): _______________<br>
+    • Food &amp; drink: within hospital policy, I'd like _______________</p>
+    <p style="color:var(--cream-dim);font-size:16.5px;margin-bottom:12px"><b style="color:var(--cream)">PAIN RELIEF</b><br>
+    • I'd like to try first: ☐ breathing/relaxation · ☐ position changes · ☐ water · ☐ massage · ☐ birth ball<br>
+    • Medical options to discuss with my provider / anesthesia team: ☐ nitrous oxide · ☐ IV medication · ☐ epidural<br>
+    • Please: ☐ offer relief when I ask · ☐ offer when you see me struggling<br>
+    • I understand I may change my mind — please support that.</p>
+    <p style="color:var(--cream-dim);font-size:16.5px;margin-bottom:12px"><b style="color:var(--cream)">DELIVERY &amp; THE FIRST HOUR</b><br>
+    • Pushing: positions I'd like to try: _______________<br>
+    • Umbilical cord: ☐ delayed clamping if possible · ☐ cord cut by: _______________<br>
+    • Right after birth: ☐ skin-to-skin in the first hour, checks on my chest if possible<br>
+    • Feeding intention: ☐ breastfeeding · ☐ formula · ☐ decide in the moment<br>
+    • Newborn procedures: please explain before anything non-urgent; my preferences: _______________<br>
+    • If we have a boy, circumcision: ☐ yes · ☐ no · ☐ decide later</p>
+    <p style="color:var(--cream-dim);font-size:16.5px"><b style="color:var(--cream)">IF PLANS CHANGE (including a cesarean)</b><br>
+    • Companion with me: _______________<br>
+    • I'd like: ☐ to see my baby right away · ☐ skin-to-skin in the OR/recovery area if offered<br>
+    • Above all: keep me informed and ask me — I want to be part of every decision.</p>
+  </div>
+
+  <div class="card takeaways">
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>A birth plan is a communication tool — preferences, not a contract, and never a scorecard</li>
+      <li>Write it as a ladder for pain relief, include cesarean preferences, and keep the right to change your mind</li>
+      <li>One page, readable in ninety seconds; draft around weeks 32–34 and discuss it with your provider by ~week 36</li>
+      <li>Three copies: your chart, your hospital bag, and a photo on your partner's phone</li>
+    </ul>
+  </div>
+
+  <p class="blog-link">Prefer reading on the blog? <a href="https://bumpandbloom.blogspot.com/" target="_blank" rel="noopener">This guide also lives on the Bump &amp; Bloom blog →</a></p>
+
+  <div class="prevnext">
+    <a href="baby-registry.html"><small>← Previous guide</small>Baby Registry Essentials: Must-Haves vs Nice-to-Haves</a>
+    <a class="next" href="pregnancy-sleep.html"><small>Next guide →</small>Pregnancy Sleep: How to Finally Get Comfortable</a>
+  </div>
+
+  <div class="newsletter">
+    <h2>🌸 The Daily Bloom</h2>
+    <p>One gentle email each morning of your pregnancy — your week, your baby, one kind tip.</p>
+    <a class="btn" href="https://hellobumpandbloom.com/#newsletter">Subscribe free →</a>
+  </div>
+
+  <p class="disclaimer">General information only, not medical advice. Always follow your own doctor or midwife for personal care.</p>
+
+  <footer>
+    © 2026 Bump &amp; Bloom — Pregnancy Week by Week · With love, Bump &amp; Bloom 🌸<br>
+    <a href="https://hellobumpandbloom.com/">Home</a> · <a href="https://www.youtube.com/@HelloBumpAndBloom">YouTube</a> · <a href="https://www.amazon.com/author/tanvirahmed">Our Books on Amazon</a>
+  </footer>
+
+</div>
+
+
+<script>
+  // Date-aware video: the Birth Plan video publishes Tue Dec 22, 2026, 7:00 PM Dhaka.
+  (function () {
+    var publish = new Date('2026-12-22T19:00:00+06:00');
+    if (new Date() >= publish) {
+      var box = document.getElementById('videoBox');
+      box.innerHTML = '<div class="video-frame"><iframe src="https://www.youtube.com/embed/Dnv0sT_v8Yk" title="Writing Your Birth Plan (Without the Stress)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+    }
+  })();
+</script>
+</body>
+</html>
